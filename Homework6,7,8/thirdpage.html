@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Homework6</title>
+  </head>
+
+  <body>
+    <main>
+      <a href="homepage.html">Home Page</a>
+      <a href="secondpage.html">Second Page</a>
+
+      <h1>Contact Me</h1>
+
+      <form onsubmit="return validateForm();" novalidate>
+        <label for="name">Name:</label>
+        <input type="text" id="name" />
+        <br />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" />
+        <br />
+
+        <label>
+          <input type="checkbox" id="terms" />
+          I agree to the terms and conditions
+        </label>
+        <br />
+
+        <input type="submit" value="Submit" />
+      </form>
+    </main>
+
+    <script>
+      function validateForm() {
+        let name = document.getElementById("name");
+        let email = document.getElementById("email");
+        let terms = document.getElementById("terms");
+
+        name.style.border = "";
+        email.style.border = "";
+
+        if (name.value.trim() === "") {
+          name.style.border = "2px solid red";
+          name.focus();
+          return false;
+        }
+
+        if (email.value.trim() === "") {
+          email.style.border = "2px solid red";
+          email.focus();
+          return false;
+        }
+
+        if (!terms.checked) {
+          terms.focus();
+          return false;
+        }
+
+        return true;
+      }
+    </script>
+  </body>
+</html>
